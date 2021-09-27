@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Yarn Shop</title>
+  <link rel="stylesheet" type="text/css" href="assets/fontawesome.min.css">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+  <div id="yarnapp" class="px-4">
+    <br>
+    <div class="flex flex-row-reverse">
+      <div  id="cart" class="w-1/6 h-12 text-2xl font-extrabold rounded-md flex items-center justify-center shadow-md">
+        {{cart.length}} items in cart
+      </div>
+    </div>
+      <br>
+      <h2 class="text-3xl sm:text-5xl lg:text-6xl leading-none font-extrabold text-gray-900 tracking-tight mb-8">Welcome to Epic Yarn Shop</h2>
+      <br>
+      <p class="max-w-4xl text-lg sm:text-2xl font-medium sm:leading-10 space-y-6 mb-6 text-gray-500">Please browse through these <i>Epic</i> Yarn items. Click the "Add to Cart" on each item to see something cool.</p>
+      <br>
+      <ul class="grid grid-cols-2 gap-4">
+        <yarn-item v-for="product in yarns" v-on:add-to-cart="updateCart" v-bind:key="product.id" :title="product.title" :image="product.image" :price="product.price" :color="product.color" ></yarn-item>
+      </ul>
+  </div>
+  
+  <script type="text/javascript" src="assets/fontawesome.min.js"></script>
+  <script type="text/javascript" src="assets/app.js"></script>
+  <script type="text/javascript" src="components/review.js"></script>
+  <script type="text/javascript" src="components/yarn-item.js"></script>
+  <script type="text/javascript">
+    const mountApp = app.mount("#yarnapp");
+  </script>
+
+</body>
+</html>
